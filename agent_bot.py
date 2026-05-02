@@ -4,9 +4,6 @@ from langchain_community.chat_models import ChatOllama
 from langgraph.graph import StateGraph, START, END
 from dotenv import load_dotenv
 
-import warnings
-warnings.filterwarnings("ignore")
-
 load_dotenv()
 llm = ChatOllama(model='gemma3:4b')
 

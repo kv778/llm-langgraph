@@ -5,6 +5,6 @@
 # LangGraph
 .langgraph_api/
 venv
-.vscode
+.vscode/
 .python-version
-settings-json
+.env
