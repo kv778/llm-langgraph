@@ -21,11 +21,17 @@ def tool_sub(a:int, b:int) -> int:
     """Tool that takes two numbers as input and subtracts them"""
     return a-b
 
+@tool
+def tool_mult(a:int, b:int) -> int:
+    """Tool that takes two numbers as input and multiplies them"""
+    return a*b
+
 tools = []
 tools.append(tool_add)
 tools.append(tool_sub)
+tools.append(tool_mult)
 
-llm = ChatOllama(model="llama3.2:3b").bind_tools(tools)
+llm = ChatOllama(model="qwen3").bind_tools(tools)
 
 def process(state:AgentState) -> AgentState:
     system_prompt = SystemMessage(
@@ -78,7 +84,7 @@ def print_stream(stream):
 
 result = agent.invoke({
     "messages": [
-        {"role": "user", "content": "what is 34 added to 21? What is 5-10?"}
+        {"role": "user", "content": "Add 10 and 14 and then mutiply by 5. Also tell me a joke"}
     ]
 })
 
